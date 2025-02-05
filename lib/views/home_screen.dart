@@ -1,6 +1,23 @@
 import 'package:flutter/material.dart';
 
+
 class HomeScreen extends StatelessWidget {
+  final List<Map<String, dynamic>> products = [
+    {
+      "name": "Laptop",
+      "price": 15000000,
+      "sold": 25,
+      "image": "https://laptopmedia.com/wp-content/uploads/2022/07/3-1.jpg"
+    },
+    {
+      "name": "Smartphone",
+      "price": 7000000,
+      "sold": 50,
+      "image": "https://example.com/smartphone_image.jpg"
+    },
+    // pastikan semua produk hanya menggunakan URL gambar sebagai string
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,19 +50,17 @@ class HomeScreen extends StatelessWidget {
                   },
                 ),
                 Expanded(
-                  // Supaya inputan tidak melebihi batas Row
                   child: Container(
-                    height: 40, // Sesuaikan tinggi input
-                    padding: EdgeInsets.symmetric(
-                        horizontal: 10), // Biar tidak terlalu rapat
+                    height: 40,
+                    padding: EdgeInsets.symmetric(horizontal: 10),
                     decoration: BoxDecoration(
-                      color: Colors.white, // Warna background input
+                      color: Colors.white,
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: TextField(
                       decoration: InputDecoration(
                         hintText: 'Cari sesuatu...',
-                        border: InputBorder.none, // Hilangkan border bawaan
+                        border: InputBorder.none,
                         contentPadding: EdgeInsets.symmetric(vertical: 10),
                       ),
                     ),
@@ -62,7 +77,67 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
-      body: Center(child: Text('Ini halaman Home')),
+      body: Padding(
+        padding: EdgeInsets.all(10),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(height: 10),
+              GridView.builder(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                itemCount: products.length,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 10,
+                  childAspectRatio: 4 / 3, // Sesuaikan supaya tidak overflow
+                ),
+                itemBuilder: (context, index) {
+                  final product = products[index];
+                  return Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    elevation: 3,
+                    child: Padding(
+                      padding: EdgeInsets.all(10),
+                      child: Column(
+                        children: [
+                          Expanded(
+                            child: Image.network(
+                              product["image"],
+                              width: 140,
+                              height: 70,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          SizedBox(height: 5),
+                          Text(
+                            product["name"],
+                            style: TextStyle(
+                                fontSize: 14, fontWeight: FontWeight.bold),
+                            textAlign: TextAlign.center,
+                          ),
+                          SizedBox(height: 3),
+                          Text(
+                            "Rp ${product["price"]}",
+                            style: TextStyle(color: Colors.green, fontSize: 12),
+                          ),
+                          Text(
+                            "${product["sold"]} terjual",
+                            style: TextStyle(color: Colors.grey, fontSize: 12),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

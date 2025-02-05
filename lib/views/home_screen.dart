@@ -7,7 +7,7 @@ class HomeScreen extends StatelessWidget {
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(80),
         child: Container(
-          height: 100,
+          height: 150,
           decoration: BoxDecoration(
             color: Colors.blue, // Ganti warna sesuai selera
             borderRadius: BorderRadius.only(
@@ -32,12 +32,23 @@ class HomeScreen extends StatelessWidget {
                     // Aksi ketika menu ditekan
                   },
                 ),
-                Text(
-                  'Home',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
+                Expanded(
+                  // Supaya inputan tidak melebihi batas Row
+                  child: Container(
+                    height: 40, // Sesuaikan tinggi input
+                    padding: EdgeInsets.symmetric(
+                        horizontal: 10), // Biar tidak terlalu rapat
+                    decoration: BoxDecoration(
+                      color: Colors.white, // Warna background input
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: TextField(
+                      decoration: InputDecoration(
+                        hintText: 'Cari sesuatu...',
+                        border: InputBorder.none, // Hilangkan border bawaan
+                        contentPadding: EdgeInsets.symmetric(vertical: 10),
+                      ),
+                    ),
                   ),
                 ),
                 IconButton(

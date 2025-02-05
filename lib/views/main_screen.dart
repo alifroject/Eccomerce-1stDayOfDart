@@ -14,9 +14,8 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
 
-  // List halaman yang bisa dipilih di navigasi bawah
   final List<Widget> _pages = [
-    HomeScreen(), // Hapus `const`
+    HomeScreen(), //
     OrdersScreen(),
     CartScreen(),
     ProfileScreen(),
@@ -31,12 +30,11 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _pages[_selectedIndex], // Menampilkan halaman yang dipilih
+      body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.white, // Warna background navbar
-        selectedItemColor: Colors.blue, // Warna ikon/tulisan yang dipilih
-        unselectedItemColor:
-            Colors.grey, // Warna ikon/tulisan yang tidak dipilih
+        backgroundColor: Colors.white,
+        selectedItemColor: Colors.blue,
+        unselectedItemColor: Colors.grey,
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
         items: const [

@@ -5,13 +5,14 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(80), // Sesuaikan tinggi AppBar
+        preferredSize: Size.fromHeight(80),
         child: Container(
+          height: 100,
           decoration: BoxDecoration(
             color: Colors.blue, // Ganti warna sesuai selera
             borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(20),
-              bottomRight: Radius.circular(20),
+              bottomLeft: Radius.circular(0),
+              bottomRight: Radius.circular(0),
             ),
             boxShadow: [
               BoxShadow(

@@ -1,21 +1,59 @@
 import 'package:flutter/material.dart';
-
+import 'package:intl/intl.dart';
 
 class HomeScreen extends StatelessWidget {
   final List<Map<String, dynamic>> products = [
     {
-      "name": "Laptop",
-      "price": 15000000,
-      "sold": 25,
-      "image": "https://laptopmedia.com/wp-content/uploads/2022/07/3-1.jpg"
+      "name": "Lenovo ThinkBook 2024",
+      "price": 10000000,
+      "sold": 45,
+      "image":
+          "https://i.pcmag.com/imagery/articles/05gYYpq2gwWk8ADSgQ9zuCR-4.jpg"
     },
     {
-      "name": "Smartphone",
-      "price": 7000000,
+      "name": "Iphone 13",
+      "price": 9000000,
       "sold": 50,
-      "image": "https://example.com/smartphone_image.jpg"
+      "image":
+          "https://yemenivoice.com/wp-content/uploads/2022/04/The-iPhone-13-and-iPhone-13-Pro-now-in-stunning-green-finishes.jpg"
     },
-    // pastikan semua produk hanya menggunakan URL gambar sebagai string
+    {
+      "name": "Liverpool Anthem Jacket",
+      "price": 100000,
+      "sold": 90,
+      "image":
+          "https://images-na.ssl-images-amazon.com/images/I/91YZJJV68fL._UY879_.jpg"
+    },
+    {
+      "name": "Series 5000 Blender Philips",
+      "price": 600000,
+      "sold": 530,
+      "image":
+          "https://m.media-amazon.com/images/I/61kQQ8oFb6L._AC_SL1500_.jpg"
+    },
+    {
+      "name": "Everest Backpack, classic school",
+      "price": 2300000,
+      "sold": 120,
+      "image":
+          "https://i5.walmartimages.com/asr/e70819f4-b326-486f-b269-4e4e9d53dd74_1.9e273d26d99df5489ec6e83f05989fd2.jpeg"
+    },
+    {
+      "name": "Adidas Campus 00s",
+      "price": 4000000,
+      "sold": 250,
+      "image":
+          "https://assets.adidas.com/images/w_940,f_auto,q_auto/ab8535b5853c4d29bfc74673e41d111e_9366/ID7028_09_standard.jpg"
+    },
+     {
+      "name": "Loyal Boyfriend, can cook, can work",
+      "price": 120000000000,
+      "sold": 0,
+      "image":
+          "https://media.licdn.com/dms/image/v2/D4E03AQGJvSu1Cw1j4w/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1699077945026?e=2147483647&v=beta&t=IQQUz13ZLFbEWrf56dkpprxFrm-kbQtikE7fcq5C2TE"
+    },
+    // 
+    //pastikan semua produk hanya menggunakan URL gambar sebagai string
   ];
 
   @override
@@ -91,7 +129,7 @@ class HomeScreen extends StatelessWidget {
                   crossAxisCount: 2,
                   crossAxisSpacing: 10,
                   mainAxisSpacing: 10,
-                  childAspectRatio: 4 / 3, // Sesuaikan supaya tidak overflow
+                  childAspectRatio: 4 / 4, // Sesuaikan supaya tidak overflow
                 ),
                 itemBuilder: (context, index) {
                   final product = products[index];
@@ -100,7 +138,8 @@ class HomeScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10),
                     ),
                     elevation: 3,
-                    child: Padding(
+                    child: Container(
+                      height: 200, // Atur tinggi card
                       padding: EdgeInsets.all(10),
                       child: Column(
                         children: [
@@ -121,7 +160,11 @@ class HomeScreen extends StatelessWidget {
                           ),
                           SizedBox(height: 3),
                           Text(
-                            "Rp ${product["price"]}",
+                            NumberFormat.currency(
+                                    locale: 'id',
+                                    symbol: 'Rp ',
+                                    decimalDigits: 0)
+                                .format(product["price"]),
                             style: TextStyle(color: Colors.green, fontSize: 12),
                           ),
                           Text(

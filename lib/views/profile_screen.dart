@@ -26,14 +26,12 @@ class ProfileScreen extends StatelessWidget {
                 child: Row(
               children: [
                 IconButton(
-                  padding: EdgeInsets.only(
-                      left: 16.0), 
+                  padding: EdgeInsets.only(left: 16.0),
                   icon: Container(
-                    padding: EdgeInsets.all(
-                        12), 
+                    padding: EdgeInsets.all(12),
                     decoration: BoxDecoration(
-                      color: Colors.white, 
-                      shape: BoxShape.circle, 
+                      color: Colors.white,
+                      shape: BoxShape.circle,
                     ),
                     child: Icon(
                       Icons.person,
@@ -41,33 +39,31 @@ class ProfileScreen extends StatelessWidget {
                       size: 30,
                     ),
                   ),
-                  onPressed: () {
-                    
-                  },
+                  onPressed: () {},
                 ),
                 Padding(
                   padding: EdgeInsets.only(
                       left: 16.0), // Add padding to the left side
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment
-                        .start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      
                       Text(
-                        'Name', 
+                        'Name',
                         style: TextStyle(
-                            fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
                       ),
-
-                      
                       Row(
-                        mainAxisAlignment: MainAxisAlignment
-                            .start, 
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: <Widget>[
-                          Text('Followers: 0', style: TextStyle(fontSize: 16, color: Colors.white)),
-                          SizedBox(
-                              width: 20), 
-                          Text('Following: 0', style: TextStyle(fontSize: 16, color: Colors.white)),
+                          Text('Followers: 0',
+                              style:
+                                  TextStyle(fontSize: 16, color: Colors.white)),
+                          SizedBox(width: 20),
+                          Text('Following: 0',
+                              style:
+                                  TextStyle(fontSize: 16, color: Colors.white)),
                         ],
                       ),
                     ],
@@ -76,7 +72,35 @@ class ProfileScreen extends StatelessWidget {
               ],
             ))),
       ),
-      body: Center(child: Text('Ini halaman Profile')),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Padding(
+              padding: EdgeInsets.all(16.0),
+              child: Text(
+                'Name: John Doe',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(16.0),
+              child: Text(
+                'Name: John Doe',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(16.0),
+              child: Text(
+                'This is a short bio or description of the user. You can add more details here.',
+                style: TextStyle(fontSize: 14, color: Colors.grey),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

@@ -28,8 +28,14 @@ class HomeScreen extends StatelessWidget {
       "name": "Series 5000 Blender Philips",
       "price": 600000,
       "sold": 530,
+      "image": "https://m.media-amazon.com/images/I/61kQQ8oFb6L._AC_SL1500_.jpg"
+    },
+    {
+      "name": "A loyal boyfriend, can cook, can work...",
+      "price": 120000000000,
+      "sold": 0,
       "image":
-          "https://m.media-amazon.com/images/I/61kQQ8oFb6L._AC_SL1500_.jpg"
+          "https://firebasestorage.googleapis.com/v0/b/anak-gundar.appspot.com/o/profile_pictures%2FW46FVzAg7TV7agixabIKKRBMH3m1?alt=media&token=4be4c519-0b89-4f16-9590-32745a09a987"
     },
     {
       "name": "Everest Backpack, classic school",
@@ -45,14 +51,15 @@ class HomeScreen extends StatelessWidget {
       "image":
           "https://assets.adidas.com/images/w_940,f_auto,q_auto/ab8535b5853c4d29bfc74673e41d111e_9366/ID7028_09_standard.jpg"
     },
-     {
-      "name": "Loyal Boyfriend, can cook, can work",
-      "price": 120000000000,
-      "sold": 0,
+    {
+      "name": "Electric Stove",
+      "price": 24000000,
+      "sold": 46,
       "image":
-          "https://media.licdn.com/dms/image/v2/D4E03AQGJvSu1Cw1j4w/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1699077945026?e=2147483647&v=beta&t=IQQUz13ZLFbEWrf56dkpprxFrm-kbQtikE7fcq5C2TE"
+          "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/4929/4929500ld.jpg"
     },
-    // 
+
+    //
     //pastikan semua produk hanya menggunakan URL gambar sebagai string
   ];
 
@@ -84,7 +91,7 @@ class HomeScreen extends StatelessWidget {
                 IconButton(
                   icon: Icon(Icons.menu, color: Colors.white),
                   onPressed: () {
-                    // Aksi ketika menu ditekan
+                   
                   },
                 ),
                 Expanded(
@@ -129,7 +136,7 @@ class HomeScreen extends StatelessWidget {
                   crossAxisCount: 2,
                   crossAxisSpacing: 10,
                   mainAxisSpacing: 10,
-                  childAspectRatio: 4 / 4, // Sesuaikan supaya tidak overflow
+                  childAspectRatio: 4 / 4,
                 ),
                 itemBuilder: (context, index) {
                   final product = products[index];
@@ -168,7 +175,7 @@ class HomeScreen extends StatelessWidget {
                             style: TextStyle(color: Colors.green, fontSize: 12),
                           ),
                           Text(
-                            "${product["sold"]} terjual",
+                            "${product["sold"]} purchased",
                             style: TextStyle(color: Colors.grey, fontSize: 12),
                           ),
                         ],

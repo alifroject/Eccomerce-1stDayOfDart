@@ -4,7 +4,13 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Profile')),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(80), 
+        child: SafeArea(
+          child: Row(
+            
+          )
+          )),
       body: Center(child: Text('Ini halaman Profile')),
     );
   }

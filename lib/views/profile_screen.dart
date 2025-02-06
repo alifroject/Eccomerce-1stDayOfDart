@@ -27,13 +27,13 @@ class ProfileScreen extends StatelessWidget {
               children: [
                 IconButton(
                   padding: EdgeInsets.only(
-                      left: 16.0), // Adds space on the left side
+                      left: 16.0), 
                   icon: Container(
                     padding: EdgeInsets.all(
-                        12), // This adds space around the icon, making the background circular
+                        12), 
                     decoration: BoxDecoration(
-                      color: Colors.white, // Circular background color
-                      shape: BoxShape.circle, // Makes the background circular
+                      color: Colors.white, 
+                      shape: BoxShape.circle, 
                     ),
                     child: Icon(
                       Icons.person,
@@ -42,7 +42,7 @@ class ProfileScreen extends StatelessWidget {
                     ),
                   ),
                   onPressed: () {
-                    // Your onPressed logic here
+                    
                   },
                 ),
                 Padding(
@@ -50,24 +50,24 @@ class ProfileScreen extends StatelessWidget {
                       left: 16.0), // Add padding to the left side
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment
-                        .start, // Align everything to the left
+                        .start,
                     children: <Widget>[
-                      // First row for Name
+                      
                       Text(
-                        'Name', // Display the name
+                        'Name', 
                         style: TextStyle(
-                            fontSize: 24, fontWeight: FontWeight.bold),
+                            fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),
                       ),
 
-                      // Second row for Followers and Following
+                      
                       Row(
                         mainAxisAlignment: MainAxisAlignment
-                            .start, // Align them to the start of the row
+                            .start, 
                         children: <Widget>[
-                          Text('Followers: 0', style: TextStyle(fontSize: 16)),
+                          Text('Followers: 0', style: TextStyle(fontSize: 16, color: Colors.white)),
                           SizedBox(
-                              width: 20), // Adds space between the two texts
-                          Text('Following: 0', style: TextStyle(fontSize: 16)),
+                              width: 20), 
+                          Text('Following: 0', style: TextStyle(fontSize: 16, color: Colors.white)),
                         ],
                       ),
                     ],

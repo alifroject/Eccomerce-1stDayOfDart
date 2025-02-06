@@ -82,8 +82,7 @@ class ProfileScreen extends StatelessWidget {
               Container(
                 color: Colors.white,
                 padding: EdgeInsets.all(16.0),
-                margin: EdgeInsets.all(
-                    9.0), 
+                margin: EdgeInsets.all(9.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
@@ -131,11 +130,55 @@ class ProfileScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              Padding(
+              Container(
+                color: Colors.white,
                 padding: EdgeInsets.all(16.0),
-                child: Text(
-                  'Name: John Doe',
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                margin: EdgeInsets.all(9.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      'My Orders',
+                      style: TextStyle(fontSize: 14),
+                    ),
+                    SizedBox(height: 20),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: <Widget>[
+                        Column(
+                          children: [
+                            Icon(Icons.payment, size: 32, color: Colors.red),
+                            SizedBox(height: 5),
+                            Text('Hasn\'t Paid',
+                                style: TextStyle(fontSize: 14)),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Icon(Icons.archive, size: 32, color: Colors.orange),
+                            SizedBox(height: 5),
+                            Text('Being Wrapped',
+                                style: TextStyle(fontSize: 14)),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Icon(Icons.local_shipping,
+                                size: 32, color: Colors.blue),
+                            SizedBox(height: 5),
+                            Text('Dispatched', style: TextStyle(fontSize: 14)),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Icon(Icons.star, size: 32, color: Colors.green),
+                            SizedBox(height: 5),
+                            Text('Review', style: TextStyle(fontSize: 14)),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ),
               Padding(

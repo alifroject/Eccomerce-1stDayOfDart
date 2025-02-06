@@ -42,8 +42,7 @@ class ProfileScreen extends StatelessWidget {
                     onPressed: () {},
                   ),
                   Padding(
-                    padding: EdgeInsets.only(
-                        left: 16.0), 
+                    padding: EdgeInsets.only(left: 16.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -145,6 +144,32 @@ class ProfileScreen extends StatelessWidget {
                           'My Wallet',
                           style: TextStyle(fontSize: 14),
                         ),
+                        Row(
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.all(
+                                  8.0), 
+                              child: Icon(
+                                Icons.wallet_travel,
+                                size: 22,
+                                color: Colors.red,
+                              ), 
+                            ),
+                            SizedBox(width: 10), 
+                            Text(
+                              'My Wallet',
+                              style: TextStyle(fontSize: 14),
+                            ),
+                            SizedBox(
+                                width: 10), 
+                            Text(
+                              '\ Rp.1000', 
+                              style: TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.green), 
+                            ),
+                          ],
+                        ),
                         SizedBox(height: 20),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -189,17 +214,14 @@ class ProfileScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-
-
                   SingleChildScrollView(
                     child: Container(
-                       color: Colors.white,
-                        margin: EdgeInsets.all(9.0),
+                      color: Colors.white,
+                      margin: EdgeInsets.all(9.0),
                       padding: EdgeInsets.all(16.0),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                        
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -207,8 +229,7 @@ class ProfileScreen extends StatelessWidget {
                                 width: 150,
                                 height: 100,
                                 decoration: BoxDecoration(
-                                  border: Border.all(
-                                      color: Colors.pink), 
+                                  border: Border.all(color: Colors.pink),
                                 ),
                                 child: Center(
                                   child: Text('Box 1',
@@ -219,8 +240,7 @@ class ProfileScreen extends StatelessWidget {
                                 width: 150,
                                 height: 100,
                                 decoration: BoxDecoration(
-                                  border: Border.all(
-                                      color: Colors.pink), 
+                                  border: Border.all(color: Colors.pink),
                                 ),
                                 child: Center(
                                   child: Text('Box 2',
@@ -240,8 +260,7 @@ class ProfileScreen extends StatelessWidget {
                                 width: 150,
                                 height: 100,
                                 decoration: BoxDecoration(
-                                  border: Border.all(
-                                      color: Colors.pink), 
+                                  border: Border.all(color: Colors.pink),
                                 ),
                                 child: Center(
                                   child: Text('Box 3',
@@ -252,8 +271,7 @@ class ProfileScreen extends StatelessWidget {
                                 width: 150,
                                 height: 100,
                                 decoration: BoxDecoration(
-                                  border: Border.all(
-                                      color: Colors.pink), 
+                                  border: Border.all(color: Colors.pink),
                                 ),
                                 child: Center(
                                   child: Text('Box 4',
@@ -273,8 +291,7 @@ class ProfileScreen extends StatelessWidget {
                                 width: 150,
                                 height: 100,
                                 decoration: BoxDecoration(
-                                  border: Border.all(
-                                      color: Colors.pink), 
+                                  border: Border.all(color: Colors.pink),
                                 ),
                                 child: Center(
                                   child: Text('Box 5',
@@ -285,8 +302,7 @@ class ProfileScreen extends StatelessWidget {
                                 width: 150,
                                 height: 100,
                                 decoration: BoxDecoration(
-                                  border: Border.all(
-                                      color: Colors.pink),
+                                  border: Border.all(color: Colors.pink),
                                 ),
                                 child: Center(
                                   child: Text('Box 6',
@@ -296,9 +312,8 @@ class ProfileScreen extends StatelessWidget {
                             ],
                           ),
 
-                          SizedBox(height: 10), 
+                          SizedBox(height: 10),
 
-                          
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -306,8 +321,7 @@ class ProfileScreen extends StatelessWidget {
                                 width: 150,
                                 height: 100,
                                 decoration: BoxDecoration(
-                                  border: Border.all(
-                                      color: Colors.pink), 
+                                  border: Border.all(color: Colors.pink),
                                 ),
                                 child: Center(
                                   child: Text('Box 7',
@@ -318,8 +332,7 @@ class ProfileScreen extends StatelessWidget {
                                 width: 150,
                                 height: 100,
                                 decoration: BoxDecoration(
-                                  border: Border.all(
-                                      color: Colors.pink),
+                                  border: Border.all(color: Colors.pink),
                                 ),
                                 child: Center(
                                   child: Text('Box 8',

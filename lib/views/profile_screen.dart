@@ -138,7 +138,7 @@ class ProfileScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      'My Orders',
+                      'My Wallet',
                       style: TextStyle(fontSize: 14),
                     ),
                     SizedBox(height: 20),
@@ -147,33 +147,41 @@ class ProfileScreen extends StatelessWidget {
                       children: <Widget>[
                         Column(
                           children: [
-                            Icon(Icons.payment, size: 32, color: Colors.red),
+                            Icon(Icons.add_circle,
+                                size: 32,
+                                color: Colors.green), // Plus icon for top-up
                             SizedBox(height: 5),
-                            Text('Hasn\'t Paid',
+                            Text('Top Up', style: TextStyle(fontSize: 14)),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Icon(Icons.transfer_within_a_station,
+                                size: 32, color: Colors.blue), // Transfer icon
+                            SizedBox(height: 5),
+                            Text('Transferring',
                                 style: TextStyle(fontSize: 14)),
                           ],
                         ),
                         Column(
                           children: [
-                            Icon(Icons.archive, size: 32, color: Colors.orange),
+                            Icon(Icons.schedule,
+                                size: 32,
+                                color: Colors
+                                    .purple), // Clock icon for delayed payment
                             SizedBox(height: 5),
-                            Text('Being Wrapped',
+                            Text('Payment\nLater',
                                 style: TextStyle(fontSize: 14)),
                           ],
                         ),
                         Column(
                           children: [
-                            Icon(Icons.local_shipping,
-                                size: 32, color: Colors.blue),
+                            Icon(Icons.local_offer,
+                                size: 32,
+                                color: Colors.orange), // Discount icon
                             SizedBox(height: 5),
-                            Text('Dispatched', style: TextStyle(fontSize: 14)),
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Icon(Icons.star, size: 32, color: Colors.green),
-                            SizedBox(height: 5),
-                            Text('Review', style: TextStyle(fontSize: 14)),
+                            Text('Discount/\nVoucher',
+                                style: TextStyle(fontSize: 14)),
                           ],
                         ),
                       ],

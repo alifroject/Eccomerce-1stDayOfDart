@@ -45,28 +45,33 @@ class ProfileScreen extends StatelessWidget {
                     // Your onPressed logic here
                   },
                 ),
-                Column(
-                  crossAxisAlignment:
-                      CrossAxisAlignment.start, // Align everything to the left
-                  children: <Widget>[
-                    // First row for Name
-                    Text(
-                      'Name', // Display the name
-                      style:
-                          TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                    ),
+                Padding(
+                  padding: EdgeInsets.only(
+                      left: 16.0), // Add padding to the left side
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment
+                        .start, // Align everything to the left
+                    children: <Widget>[
+                      // First row for Name
+                      Text(
+                        'Name', // Display the name
+                        style: TextStyle(
+                            fontSize: 24, fontWeight: FontWeight.bold),
+                      ),
 
-                    // Second row for Followers and Following
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment
-                          .start, // Align them to the start of the row
-                      children: <Widget>[
-                        Text('Followers: 0', style: TextStyle(fontSize: 16)),
-                        SizedBox(width: 20), // Adds space between the two texts
-                        Text('Following: 0', style: TextStyle(fontSize: 16)),
-                      ],
-                    ),
-                  ],
+                      // Second row for Followers and Following
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment
+                            .start, // Align them to the start of the row
+                        children: <Widget>[
+                          Text('Followers: 0', style: TextStyle(fontSize: 16)),
+                          SizedBox(
+                              width: 20), // Adds space between the two texts
+                          Text('Following: 0', style: TextStyle(fontSize: 16)),
+                        ],
+                      ),
+                    ],
+                  ),
                 )
               ],
             ))),

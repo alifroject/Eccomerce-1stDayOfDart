@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-class HomeScreen extends StatelessWidget {
-  final List<Map<String, dynamic>> products = [
+class HomeScreen extends StatefulWidget {
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  List<Map<String, dynamic>> products = [
     {
       "name": "Lenovo ThinkBook 2024",
       "price": 10000000,
@@ -58,10 +63,27 @@ class HomeScreen extends StatelessWidget {
       "image":
           "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/4929/4929500ld.jpg"
     },
-
-    //
-    //pastikan semua produk hanya menggunakan URL gambar sebagai string
   ];
+
+  List<Map<String, dynamic>> filteredProducts = [];
+  TextEditingController searchController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    filteredProducts = products; // Initialize with all products
+  }
+
+  void searchProducts(String query) {
+    final results = products.where((product) {
+      final name = product["name"].toLowerCase();
+      return name.contains(query.toLowerCase());
+    }).toList();
+
+    setState(() {
+      filteredProducts = results;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -71,11 +93,7 @@ class HomeScreen extends StatelessWidget {
         child: Container(
           height: 150,
           decoration: BoxDecoration(
-            color: Colors.blue, // Ganti warna sesuai selera
-            borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(0),
-              bottomRight: Radius.circular(0),
-            ),
+            color: Colors.blue,
             boxShadow: [
               BoxShadow(
                 color: Colors.black26,
@@ -90,9 +108,7 @@ class HomeScreen extends StatelessWidget {
               children: [
                 IconButton(
                   icon: Icon(Icons.menu, color: Colors.white),
-                  onPressed: () {
-                   
-                  },
+                  onPressed: () {},
                 ),
                 Expanded(
                   child: Container(
@@ -103,6 +119,9 @@ class HomeScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: TextField(
+                      controller: searchController,
+                      onChanged:
+                          searchProducts, // Calls search function on typing
                       decoration: InputDecoration(
                         hintText: 'Cari sesuatu...',
                         border: InputBorder.none,
@@ -113,9 +132,7 @@ class HomeScreen extends StatelessWidget {
                 ),
                 IconButton(
                   icon: Icon(Icons.notifications, color: Colors.white),
-                  onPressed: () {
-                    // Aksi ketika notifikasi ditekan
-                  },
+                  onPressed: () {},
                 ),
               ],
             ),
@@ -128,62 +145,72 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(height: 10),
-              GridView.builder(
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                itemCount: products.length,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 10,
-                  mainAxisSpacing: 10,
-                  childAspectRatio: 4 / 4,
-                ),
-                itemBuilder: (context, index) {
-                  final product = products[index];
-                  return Card(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    elevation: 3,
-                    child: Container(
-                      height: 200, // Atur tinggi card
-                      padding: EdgeInsets.all(10),
-                      child: Column(
-                        children: [
-                          Expanded(
-                            child: Image.network(
-                              product["image"],
-                              width: 140,
-                              height: 70,
-                              fit: BoxFit.cover,
+              filteredProducts.isEmpty
+                  ? Center(
+                      child: Text(
+                        "No products found",
+                        style: TextStyle(fontSize: 16, color: Colors.grey),
+                      ),
+                    )
+                  : GridView.builder(
+                      shrinkWrap: true,
+                      physics: NeverScrollableScrollPhysics(),
+                      itemCount: filteredProducts.length,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        crossAxisSpacing: 10,
+                        mainAxisSpacing: 10,
+                        childAspectRatio: 4 / 4,
+                      ),
+                      itemBuilder: (context, index) {
+                        final product = filteredProducts[index];
+                        return Card(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          elevation: 3,
+                          child: Container(
+                            height: 200,
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              children: [
+                                Expanded(
+                                  child: Image.network(
+                                    product["image"],
+                                    width: 140,
+                                    height: 70,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                                SizedBox(height: 5),
+                                Text(
+                                  product["name"],
+                                  style: TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold),
+                                  textAlign: TextAlign.center,
+                                ),
+                                SizedBox(height: 3),
+                                Text(
+                                  NumberFormat.currency(
+                                          locale: 'id',
+                                          symbol: 'Rp ',
+                                          decimalDigits: 0)
+                                      .format(product["price"]),
+                                  style: TextStyle(
+                                      color: Colors.green, fontSize: 12),
+                                ),
+                                Text(
+                                  "${product["sold"]} purchased",
+                                  style: TextStyle(
+                                      color: Colors.grey, fontSize: 12),
+                                ),
+                              ],
                             ),
                           ),
-                          SizedBox(height: 5),
-                          Text(
-                            product["name"],
-                            style: TextStyle(
-                                fontSize: 14, fontWeight: FontWeight.bold),
-                            textAlign: TextAlign.center,
-                          ),
-                          SizedBox(height: 3),
-                          Text(
-                            NumberFormat.currency(
-                                    locale: 'id',
-                                    symbol: 'Rp ',
-                                    decimalDigits: 0)
-                                .format(product["price"]),
-                            style: TextStyle(color: Colors.green, fontSize: 12),
-                          ),
-                          Text(
-                            "${product["sold"]} purchased",
-                            style: TextStyle(color: Colors.grey, fontSize: 12),
-                          ),
-                        ],
-                      ),
+                        );
+                      },
                     ),
-                  );
-                },
-              ),
             ],
           ),
         ),

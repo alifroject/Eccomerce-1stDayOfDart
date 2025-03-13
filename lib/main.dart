@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import 'views/main_screen.dart'; // Impor main screen
+import 'views/onboarding/welcome_screen.dart';
+import 'views/onboarding/agreement_screen.dart';
+import 'views/onboarding/login_screen.dart';
+import 'views/onboarding/signup_screen.dart';
+import 'views/main_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,15 +15,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        bottomNavigationBarTheme: BottomNavigationBarThemeData(
-          backgroundColor: Colors.white,
-          selectedItemColor: Colors.blue,
-          unselectedItemColor: Colors.grey,
-        ),
-      ),
-      home: MainScreen(),
+      debugShowCheckedModeBanner: false,
+      initialRoute: '/welcome',
+      routes: {
+        '/welcome': (context) => const WelcomeScreen(),
+        '/agreement': (context) => const AgreementScreen(),
+        '/login': (context) => const LoginScreen(),
+        '/signup': (context) => const SignupScreen(),
+        '/home': (context) => const MainScreen(), // Dummy home screen
+      },
     );
   }
-  
 }
+
+

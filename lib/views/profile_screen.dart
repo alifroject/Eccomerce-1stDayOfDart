@@ -47,7 +47,7 @@ class ProfileScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Text(
-                          'Name',
+                          'Jhonson Ganteng',
                           style: TextStyle(
                               fontSize: 24,
                               fontWeight: FontWeight.bold,
@@ -108,7 +108,7 @@ class ProfileScreen extends StatelessWidget {
                                 Icon(Icons.archive,
                                     size: 32, color: Colors.orange),
                                 SizedBox(height: 5),
-                                Text('Being Wrapped',
+                                Text('Packaging',
                                     style: TextStyle(fontSize: 14)),
                               ],
                             ),
@@ -147,26 +147,23 @@ class ProfileScreen extends StatelessWidget {
                         Row(
                           children: [
                             Padding(
-                              padding: EdgeInsets.all(
-                                  8.0), 
+                              padding: EdgeInsets.all(8.0),
                               child: Icon(
                                 Icons.wallet_travel,
                                 size: 22,
                                 color: Colors.red,
-                              ), 
+                              ),
                             ),
-                            SizedBox(width: 10), 
+                            SizedBox(width: 10),
                             Text(
                               'My Wallet',
                               style: TextStyle(fontSize: 14),
                             ),
-                            SizedBox(
-                                width: 10), 
+                            SizedBox(width: 10),
                             Text(
-                              '\ Rp.1000', 
-                              style: TextStyle(
-                                  fontSize: 14,
-                                  color: Colors.green), 
+                              '\ Rp.1000.000',
+                              style:
+                                  TextStyle(fontSize: 14, color: Colors.red),
                             ),
                           ],
                         ),

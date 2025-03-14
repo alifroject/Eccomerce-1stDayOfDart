@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "598500886920",
+    "firebase_url": "https://fir-auth-bd49b-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "fir-auth-bd49b",
+    "storage_bucket": "fir-auth-bd49b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:598500886920:android:4ce05e720ae80b29aa523d",
+        "android_client_info": {
+          "package_name": "com.example.pinjam_buku2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "598500886920-83jfsnbo12ksqt3jm71vd7mpigk77auv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB54vPBNAJiKB27iK6P0Vp2u6veT5ALdSM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "598500886920-83jfsnbo12ksqt3jm71vd7mpigk77auv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

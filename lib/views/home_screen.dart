@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'search_page_loc.dart'; 
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -80,15 +81,42 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 )),
               ),
-              Container(
-                height: 90,
-                decoration: BoxDecoration(color: Colors.blue, boxShadow: [
-                  BoxShadow(
-                      color: Colors.black26,
-                      blurRadius: 4,
-                      offset: Offset(0, 4))
-                ]),
-              )
+              GestureDetector(
+                onTap: () {
+                  // Navigate to another page
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SearchPageLoc()),
+                  );
+                },
+                child: Container(
+                  height: 90,
+                  padding: EdgeInsets.symmetric(horizontal: 16),
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black26,
+                        blurRadius: 4,
+                        offset: Offset(0, 4),
+                      ),
+                    ],
+                    borderRadius: BorderRadius.circular(8), // Rounded corners
+                  ),
+                  alignment: Alignment.centerLeft,
+                  child: Row(
+                    children: [
+                      Icon(Icons.search,
+                          color: Colors.white), // Optional search icon
+                      SizedBox(width: 8),
+                      Text(
+                        "Tap to search...",
+                        style: TextStyle(color: Colors.white70, fontSize: 16),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ],
           )),
       body: Center(child: Text("This is child")),

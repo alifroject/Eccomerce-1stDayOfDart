@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "598500886920-acaphqjbjhuh4t62mtgv1k0dotre7eqr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pinjam_buku2",
+            "certificate_hash": "4ed380d067c26e7df620d289cc2749b70fc67fbd"
+          }
+        },
+        {
           "client_id": "598500886920-83jfsnbo12ksqt3jm71vd7mpigk77auv.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -30,6 +38,13 @@
             {
               "client_id": "598500886920-83jfsnbo12ksqt3jm71vd7mpigk77auv.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "598500886920-7qp66d3nljb0evflap561sv4b4glkef6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.pinjamBuku2"
+              }
             }
           ]
         }

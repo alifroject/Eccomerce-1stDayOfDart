@@ -44,7 +44,7 @@ class WelcomeScreen extends StatelessWidget {
             // Next Button
             ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/agreement');
+                Navigator.pushNamed(context, '/home');
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.white,

@@ -1,75 +1,79 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class ProfileScreen extends StatelessWidget {
+  // Logout function
+  Future<void> _signOut(BuildContext context) async {
+    await FirebaseAuth.instance.signOut(); // Firebase logout
+    Navigator.pushReplacementNamed(context, '/welcome'); // Redirect to sign-up
+  }
+
   @override
   Widget build(BuildContext context) {
+    final User? user = FirebaseAuth.instance.currentUser;
     return Scaffold(
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(100),
           child: Container(
-              height: 140,
-              decoration: BoxDecoration(
-                color: Colors.blue,
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(0),
-                  bottomRight: Radius.circular(0),
+            height: 140,
+            decoration: BoxDecoration(
+              color: Colors.blue,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black26,
+                  blurRadius: 4,
+                  offset: Offset(0, 4),
                 ),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black26,
-                    blurRadius: 4,
-                    offset: Offset(0, 4),
+              ],
+            ),
+            child: SafeArea(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      SizedBox(width: 16),
+                      
+                      CircleAvatar(
+                        radius: 30,
+                        backgroundImage: user?.photoURL != null
+                            ? NetworkImage(user!.photoURL!)
+                            : null,
+                        child: user?.photoURL == null
+                            ? Icon(Icons.person, size: 30, color: Colors.white)
+                            : null,
+                      ),
+                      SizedBox(width: 16),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            user?.displayName ?? 'Guest',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                          Text(
+                            user?.email ?? 'No Email',
+                            style:
+                                TextStyle(fontSize: 14, color: Colors.white70),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
+                  IconButton(
+                    icon: Icon(Icons.logout, color: Colors.white),
+                    onPressed: () => _signOut(context), // Logout function
+                  ),
+                  SizedBox(width: 16),
                 ],
               ),
-              child: SafeArea(
-                  child: Row(
-                children: [
-                  IconButton(
-                    padding: EdgeInsets.only(left: 16.0),
-                    icon: Container(
-                      padding: EdgeInsets.all(12),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        shape: BoxShape.circle,
-                      ),
-                      child: Icon(
-                        Icons.person,
-                        color: Colors.blue,
-                        size: 30,
-                      ),
-                    ),
-                    onPressed: () {},
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 16.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          'Jhonson Ganteng',
-                          style: TextStyle(
-                              fontSize: 24,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: <Widget>[
-                            Text('Followers: 0',
-                                style: TextStyle(
-                                    fontSize: 16, color: Colors.white)),
-                            SizedBox(width: 20),
-                            Text('Following: 0',
-                                style: TextStyle(
-                                    fontSize: 16, color: Colors.white)),
-                          ],
-                        ),
-                      ],
-                    ),
-                  )
-                ],
-              ))),
+            ),
+          ),
         ),
         body: SingleChildScrollView(
           child: Center(
@@ -162,8 +166,7 @@ class ProfileScreen extends StatelessWidget {
                             SizedBox(width: 10),
                             Text(
                               '\ Rp.1000.000',
-                              style:
-                                  TextStyle(fontSize: 14, color: Colors.red),
+                              style: TextStyle(fontSize: 14, color: Colors.red),
                             ),
                           ],
                         ),

@@ -3,6 +3,7 @@ import 'home_screen.dart';
 import 'profile_screen.dart';
 import 'cart_screen.dart';
 import 'orders_screen.dart';
+import 'chat_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -18,6 +19,7 @@ class _MainScreenState extends State<MainScreen> {
     HomeScreen(), //
     OrdersScreen(),
     CartScreen(),
+    ChatPage(),
     ProfileScreen(),
   ];
 
@@ -46,9 +48,11 @@ class _MainScreenState extends State<MainScreen> {
           BottomNavigationBarItem(
               icon: Icon(Icons.favorite),
               label: "Favorit"), // Heart icon for favorites
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Kos Saya"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: "Kos Saya"), // Home icon for owned kos
+            icon: Icon(Icons.chat), // Changed to chat icon
+            label: "Pesan",
+          ), // Home icon for owned kos
           BottomNavigationBarItem(
               icon: Icon(Icons.person),
               label: "Pofil"), // Chat icon for messaging

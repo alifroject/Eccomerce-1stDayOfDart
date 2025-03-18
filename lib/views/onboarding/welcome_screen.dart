@@ -18,13 +18,13 @@ class WelcomeScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             // Logo or Image
-            Image.asset('assets/images/cart.png', height: 120), // Replace with actual logo
+            Image.asset('assets/images/house.png', height: 120), // Replace with actual logo
 
             SizedBox(height: 20),
 
             // Welcome Text
             Text(
-              "Welcome to ShopEase!",
+              "Welcome to House Gunadarma!",
               style: TextStyle(
                 fontSize: 26,
                 fontWeight: FontWeight.bold,
@@ -35,7 +35,7 @@ class WelcomeScreen extends StatelessWidget {
             SizedBox(height: 10),
 
             Text(
-              "Find the best products at unbeatable prices",
+              "Find the best houses at unbeatable prices",
               style: TextStyle(fontSize: 16, color: Colors.white70),
             ),
 

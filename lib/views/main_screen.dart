@@ -32,16 +32,26 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
+        type:
+            BottomNavigationBarType.fixed, // Ensures labels are always visible
         backgroundColor: Colors.white,
         selectedItemColor: Colors.blue,
         unselectedItemColor: Colors.grey,
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Icons.shopping_cart), label: "Cart"),
-          BottomNavigationBarItem(icon: Icon(Icons.list), label: "Orders"),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.search),
+              label: "Cari"), // Search icon for searching
+          BottomNavigationBarItem(
+              icon: Icon(Icons.favorite),
+              label: "Favorit"), // Heart icon for favorites
+          BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: "Kos Saya"), // Home icon for owned kos
+          BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: "Pofil"), // Chat icon for messaging
         ],
       ),
     );

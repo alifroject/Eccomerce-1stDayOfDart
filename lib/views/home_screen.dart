@@ -112,6 +112,16 @@ class _HomeScreenState extends State<HomeScreen> {
     ),
   ];
 
+  final ScrollController _scrollController = ScrollController();
+
+  void _scrollToTop() {
+    _scrollController.animateTo(
+      0, // Scroll to top position
+      duration: Duration(milliseconds: 500), // Animation speed
+      curve: Curves.easeInOut, // Smooth animation
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -228,6 +238,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           )),
       body: SingleChildScrollView(
+        controller: _scrollController,
         padding: EdgeInsets.zero,
         child: Container(
           color: const Color.fromARGB(255, 223, 227, 229),
@@ -410,7 +421,37 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ],
                 ),
-              )
+              ),
+              SizedBox(height: 20), // Space before the button
+
+              Center(
+                child: ElevatedButton.icon(
+                  onPressed: () {
+                    _scrollController.animateTo(
+                      0, // Scroll to top
+                      duration: Duration(milliseconds: 500),
+                      curve: Curves.easeInOut,
+                    );
+                  },
+                  icon: Icon(Icons.arrow_upward,
+                      size: 20, color: Colors.white), // ✅ Added Icon
+                  label: Text(
+                    "Kembali ke Atas",
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    padding: EdgeInsets.symmetric(
+                        horizontal: 20, vertical: 12), // ✅ More padding
+                    backgroundColor: Colors.blueAccent, // ✅ Stylish color
+                    foregroundColor: Colors.white, // ✅ White text
+                    shape: RoundedRectangleBorder(
+                      borderRadius:
+                          BorderRadius.circular(30), // ✅ Rounded corners
+                    ),
+                    elevation: 5, // ✅ Subtle shadow
+                  ),
+                ),
+              ),
             ],
           ),
         ),
